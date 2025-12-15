@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary Color Palette */
+  --color-primary-50: #e6f1ff;
+  --color-primary-100: #b3d9ff;
+  --color-primary-200: #80c1ff;
+  --color-primary-300: #4da9ff;
+  --color-primary-400: #1a91ff;
+  --color-primary-500: #0070e6;
+  --color-primary-600: #0059b3;
+  --color-primary-700: #004280;
+  --color-primary-800: #002b4d;
+  --color-primary-900: #00141a;
+
+  /* Secondary Color Palette */
+  --color-secondary-50: #e6f9f9;
+  --color-secondary-100: #b3f0f0;
+  --color-secondary-200: #80e7e7;
+  --color-secondary-300: #4ddede;
+  --color-secondary-400: #1ad5d5;
+  --color-secondary-500: #00b8b8;
+  --color-secondary-600: #009393;
+  --color-secondary-700: #006e6e;
+  --color-secondary-800: #004949;
+  --color-secondary-900: #002424;
+
+  /* Navy Color Palette (legacy) */
+  --color-navy-50: #e6f1ff;
+  --color-navy-100: #b3d7ff;
+  --color-navy-200: #80bdff;
+  --color-navy-300: #4da3ff;
+  --color-navy-400: #1a89ff;
+  --color-navy-500: #0066cc;
+  --color-navy-600: #004d99;
+  --color-navy-700: #003366;
+  --color-navy-800: #001a33;
+  --color-navy-900: #000d1a;
+
+  /* Ocean Color Palette (legacy) */
+  --color-ocean-50: #e6f7ff;
+  --color-ocean-100: #b3e6ff;
+  --color-ocean-200: #80d5ff;
+  --color-ocean-300: #4dc4ff;
+  --color-ocean-400: #1ab3ff;
+  --color-ocean-500: #0099e6;
+  --color-ocean-600: #0077b3;
+  --color-ocean-700: #005580;
+  --color-ocean-800: #00334d;
+  --color-ocean-900: #00121a;
+
+  /* Game-Specific Colors */
+  --color-game-water: #1e40af;
+  --color-game-water-light: #3b82f6;
+  --color-game-ship: #374151;
+  --color-game-ship-hover: #4b5563;
+  --color-game-hit: #dc2626;
+  --color-game-miss: #6b7280;
+  --color-game-sunk: #991b1b;
+  --color-game-valid: #10b981;
+  --color-game-invalid: #ef4444;
+
+  /* Font Families */
+  --font-sans: 'Inter', 'system-ui', 'sans-serif';
+  --font-mono: 'Fira Code', 'monospace';
+  --font-display: 'Poppins', 'sans-serif';
+
+  /* Custom Shadows */
+  --shadow-cell-hover: 0 0 10px rgba(59, 130, 246, 0.5);
+  --shadow-ship-placement: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-hit: 0 0 15px rgba(220, 38, 38, 0.6);
+  --shadow-miss: 0 0 10px rgba(107, 114, 128, 0.4);
+}
+
+@layer base {
+  body {
+    @apply bg-navy-900 text-white min-h-screen;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-ocean-500 hover:bg-ocean-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-navy-700 hover:bg-navy-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+
+  .card {
+    @apply bg-navy-800 rounded-lg shadow-xl p-6 border border-navy-700;
+  }
+
+  .input {
+    @apply bg-navy-700 border border-navy-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-ocean-500;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-in;
+  }
+
+  .animate-hit-explosion {
+    animation: hitExplosion 0.6s ease-out;
+  }
+
+  .animate-miss-splash {
+    animation: missSplash 0.6s ease-out;
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hitExplosion {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(220, 38, 38, 0);
+  }
+  20% {
+    transform: scale(1.15);
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.8);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(220, 38, 38, 1);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 5px rgba(220, 38, 38, 0.3);
+  }
+}
+
+@keyframes missSplash {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  30% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.3) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
