@@ -28,17 +28,10 @@ const Lobby = () => {
     const initializeLobby = async () => {
       if (!user || !session) {
         console.log('⏳ Lobby: Waiting for user session...');
-        console.log('⏳ Lobby: user:', user);
-        console.log('⏳ Lobby: session:', session);
         return;
       }
 
-      console.log('👤 Lobby: User session found:', { 
-        userId: user.id, 
-        hasToken: !!session?.access_token,
-        sessionKeys: session ? Object.keys(session) : [],
-        session: session
-      });
+      console.log('👤 Lobby: User session found:', user.id);
 
       try {
         // Initialize the realtime service with user session

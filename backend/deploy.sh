@@ -23,7 +23,7 @@ echo "� Deploying backend..."
 vercel --prod --name battleship-backend
 
 echo "✅ Backend deployment completed!"
-echo "🌐 Your backend should be available at: https://battleship-backend-game.vercel.app"
+echo "🌐 Your backend URL is shown in the Vercel output above"
 echo ""
 echo "📝 Don't forget to:"
 echo "   1. Set environment variables in Vercel dashboard"

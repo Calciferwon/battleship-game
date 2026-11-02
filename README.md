@@ -94,17 +94,7 @@ Before running this project, make sure you have:
 - ✅ Git installed
 - ✅ Code editor (VS Code recommended)
 
-## 📚 Documentation
-
-- **QUICK_START.md** - Get running in 5 minutes
-- **PROJECT_COMPLETE.md** - Full feature list & status
-- **DEPLOYMENT_GUIDE.md** - Production deployment
-- **BUILD_FIX_SUMMARY.md** - Tailwind v4 fixes
-- **PHASE_*_COMPLETE.md** - Implementation details
-
 ## 🚀 Getting Started
-
-> **Quick Start**: See `QUICK_START.md` for detailed setup instructions
 
 ### 1. Clone & Install
 
@@ -217,12 +207,6 @@ battleship_pvp/
 ├── database/                     # SQL schemas
 │   └── schema.sql
 │
-├── docs/                        # Documentation
-│   ├── QUICK_START.md
-│   ├── PROJECT_COMPLETE.md
-│   ├── DEPLOYMENT_GUIDE.md
-│   └── BUILD_FIX_SUMMARY.md
-│
 └── README.md                    # This file
 ```
 
@@ -289,11 +273,6 @@ NODE_ENV=production npm start
 - ✅ **Backend**: Railway or Render
 - ✅ **Database**: Supabase (managed)
 
-**Deployment Guides**:
-- `DEPLOYMENT_GUIDE.md` - Complete deployment guide
-- `DEPLOYMENT_QUICK_START.md` - Quick deploy in 10 minutes
-- `VERCEL_DEPLOYMENT_GUIDE.md` - Vercel-specific guide
-
 **Configuration Files Included**:
 - `vercel.json` - Vercel configuration
 - `railway.json` - Railway configuration
@@ -340,7 +319,6 @@ NODE_ENV=production npm start
 
 **Build fails with Tailwind error**
 - Solution: Install `@tailwindcss/postcss`
-- See `BUILD_FIX_SUMMARY.md`
 
 **Socket connection fails**
 - Check backend is running on port 3001
@@ -352,13 +330,9 @@ NODE_ENV=production npm start
 - Check Supabase Auth is enabled
 - Review browser console for errors
 
-See `QUICK_START.md` for more troubleshooting tips.
-
 ## 📞 Support
 
-- **Documentation**: Check `/docs` folder
 - **Issues**: Review error messages and logs
-- **Deployment**: See `DEPLOYMENT_GUIDE.md`
 
 ## 🤝 Contributing
 
@@ -381,7 +355,5 @@ Built with modern web technologies for competitive tournament play among classma
 ---
 
 **🎮 Ready to deploy and start your tournament!**
-
-See `DEPLOYMENT_GUIDE.md` to go live in production.
 
 Made with ❤️ for friendly competition ⚓

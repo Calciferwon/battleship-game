@@ -583,7 +583,6 @@ const TournamentGamePlay = () => {
       // Use cached session instead of calling getSession() which hangs
       if (!session?.access_token) {
         console.error('🎮 ❌ No session or access token - cannot save move');
-        console.error('🎮 Session state:', session);
         return;
       }
       
@@ -1077,21 +1076,13 @@ const TournamentGamePlay = () => {
               console.log('🏆 Using session from auth hook...');
               console.log('🏆 Session available:', session ? 'YES' : 'NO');
               console.log('🏆 User ID:', user?.id);
-              console.log('🏆 Session object keys:', session ? Object.keys(session).join(', ') : 'N/A');
               console.log('🏆 Session has access_token:', !!session?.access_token);
-              
-              if (session?.access_token) {
-                const tokenPreview = session.access_token.substring(0, 20);
-                console.log('🏆 Access token preview:', tokenPreview + '...');
-                console.log('🏆 Access token length:', session.access_token.length);
-              }
               
               if (!session || !session.access_token) {
                 console.error('🏆 ❌ No session or access token - cannot complete match');
                 console.error('🏆 ❌ Session type:', typeof session);
                 console.error('🏆 ❌ Session is null:', session === null);
                 console.error('🏆 ❌ Session is undefined:', session === undefined);
-                console.error('🏆 ❌ Session stringified:', JSON.stringify(session, null, 2));
                 throw new Error('No authentication session or access token');
               }
               

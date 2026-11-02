@@ -4,7 +4,7 @@ import gameHandler from './game.js';
 // Simple Vercel-compatible backend entry point
 export default async function handler(req, res) {
   // Set CORS headers
-  res.setHeader('Access-Control-Allow-Origin', process.env.CORS_ORIGIN || 'https://battleship-frontend-game.vercel.app');
+  res.setHeader('Access-Control-Allow-Origin', process.env.CORS_ORIGIN || 'http://localhost:5173');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -60,7 +60,7 @@ export default async function handler(req, res) {
     return res.json({
       title: 'Battleship Backend API Documentation',
       version: '1.0.0',
-      baseUrl: 'https://battleship-backend-game.vercel.app',
+      baseUrl: `${req.headers['x-forwarded-proto'] || 'http'}://${req.headers.host}`,
       endpoints: {
         'GET /': 'API information',
         'GET /health': 'Health check',
@@ -75,7 +75,7 @@ export default async function handler(req, res) {
         'POST /api/game?action=sendMessage': 'Send chat message'
       },
       authentication: 'Bearer token required in Authorization header',
-      cors: 'Enabled for battleship-frontend-game.vercel.app'
+      cors: `Enabled for ${process.env.CORS_ORIGIN || 'http://localhost:5173'}`
     });
   }
 
